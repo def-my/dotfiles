@@ -82,13 +82,21 @@ function chpwd --on-variable PWD
     end
 end
 
-function done_enter --on-event fish_postexec
-    if test -z "$argv"
-        ls
-        if git rev-parse --is-inside-work-tree > /dev/null 2>&1
-            echo
-            echo (set_color yellow)"--- git status ---"(set_color normal)
-            git status -sb
-        end
+function __show_current_dir_and_git_status
+    ls
+    if git rev-parse --is-inside-work-tree > /dev/null 2>&1
+        echo
+        echo (set_color yellow)"--- git status ---"(set_color normal)
+        git status -sb
     end
+end
+
+function done_enter
+    if test -z (commandline)
+        echo
+        __show_current_dir_and_git_status
+    else
+        commandline -f execute
+    end
+    commandline -f repaint
 end
