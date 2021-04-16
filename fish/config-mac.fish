@@ -35,6 +35,11 @@ if which go > /dev/null
     set -x PATH $PATH $GOPATH/bin
 end
 
+# rust
+if [ -d "$HOME/.cargo" ]
+    set -x PATH $HOME/.cargo/bin $PATH
+end
+
 # sdkman
 #[ -s "$HOME/.sdkman/bin/sdkman-init.sh" ]; and source "$HOME/.sdkman/bin/sdkman-init.sh"
 
