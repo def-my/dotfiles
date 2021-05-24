@@ -28,13 +28,6 @@ if [ -d "$HOME/.goenv" ]
     status --is-interactive; and source (goenv init -|psub)
 end
 
-# golang
-if which go > /dev/null
-    [ ! -d "$HOME/.golang" ]; and mkdir -p "$HOME/.golang/bin"
-    set -x GOPATH $HOME/.golang
-    set -x PATH $PATH $GOPATH/bin
-end
-
 # rust
 if [ -d "$HOME/.cargo" ]
     set -x PATH $HOME/.cargo/bin $PATH
