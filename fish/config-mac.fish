@@ -19,7 +19,7 @@ end
 
 # pyenv
 if which pyenv > /dev/null
-    status --is-interactive; and source (pyenv init -|psub)
+    status --is-interactive; and eval (pyenv init --path)
 end
 
 # goenv

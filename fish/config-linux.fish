@@ -21,7 +21,7 @@ end
 # pyenv
 if [ -d "$HOME/.pyenv" ]
     set -x PATH $HOME/.pyenv/bin $PATH
-    status --is-interactive; and source (pyenv init -|psub)
+    status --is-interactive; and eval (pyenv init --path)
 end
 
 # goenv
